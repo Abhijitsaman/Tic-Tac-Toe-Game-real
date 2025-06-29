@@ -1,4 +1,4 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -182,6 +182,11 @@
 
     // Restart game
     resetButton.addEventListener('click', () => {
+      // This is the bridge to Sketchware. It will try to call the "showAd" function.
+      if (typeof MyActivity !== 'undefined' && typeof MyActivity.showAd === 'function') {
+        MyActivity.showAd();
+      }
+      
       initializeBoard();
       bgMusic.currentTime = 0; // Restart music
       bgMusic.play();
